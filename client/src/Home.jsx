@@ -3,6 +3,7 @@ import throttle from "lodash.throttle";
 import useWebSocket from "react-use-websocket";
 
 import { Cursor } from "./components/Cursor";
+import { getBaseUrl } from "./utils/config";
 const renderCursor = (users) => {
   return Object.keys(users).map((uuid) => {
     const user = users[uuid];
@@ -22,7 +23,7 @@ const renderUsersList = (users) => {
 };
 
 export function Home({ username }) {
-  const WS_URL = "ws://localhost:8000";
+  const WS_URL = getBaseUrl();
   const { sendJsonMessage, lastJsonMessage } = useWebSocket(WS_URL, {
     queryParams: { username },
   });
