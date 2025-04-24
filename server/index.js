@@ -8,13 +8,6 @@ const server = http.createServer()
 const wsServer = new WebSocketServer({server})
 
 const port = process.env.PORT || 8000
-const cors = require("cors");
-
-// if you use express
-app.use(cors({
-  origin: "https://nihesh-cursors.vercel.com", // or "*"
-  methods: ["GET", "POST"]
-}));
 
 
 const connections = {}
